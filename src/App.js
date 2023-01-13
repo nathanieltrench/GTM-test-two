@@ -10,9 +10,18 @@ This is also where the Appcues.identify call is made, as well as any event liste
 like Appcues.on so that they will be called every time the page loads.
 */
 
-let testVariable = "NateTest";
+let user = {
+  name: "Nate",
+  userId: "12345"
+};
 
-console.log(testVariable);
+var dataLayer = window.dataLayer = window.dataLayer || [];
+dataLayer.push({
+userId: user.userId,
+name: user.name
+});
+
+console.log(user.name);
 
 const App = () => {
   if (!window.localStorage.currentUser) { // persists the current user across page refresh
